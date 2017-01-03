@@ -1,0 +1,16 @@
+h1 {
+  font-family: helvetica;
+}
+
+
+p {
+  color: lightgrey;
+}
+
+.current-content {
+  background-color: #0000FF;
+}
+
+#future-content {
+  border: 5px dashed #FF0000;
+}
