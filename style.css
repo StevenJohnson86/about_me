@@ -1,10 +1,18 @@
 * {
   background-color: black;
+
 }
 
 h1 {
   font-family: helvetica;
   color: white;
+}
+
+h3 {
+  color: white;
+
+  text-align: center;
+  border: 1px solid gray;
 }
 
 p {
@@ -18,6 +26,6 @@ ul {
 #gameResults {
   size: 14px;
   border: 2px solid white;
-  max-width: 200px;
+  max-width: 250px;
   text-align: center;
 }
