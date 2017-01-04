@@ -23,6 +23,10 @@ ul {
   color: white;
 }
 
+ol {
+  color: white;
+}
+
 #gameResults {
   size: 14px;
   border: 2px solid white;

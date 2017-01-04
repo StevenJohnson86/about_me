@@ -69,7 +69,7 @@ if (userName === null) {
     document.write('<p>A4: (N) Wrong, I went during the last week of December.</p>');
   }
 //Question5
-  var answer5 = prompt('Final question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?').toUpperCase();
+  var answer5 = prompt('Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?').toUpperCase();
   console.log(userName + ' answered ' + answer5 + ' to question 5.');
   document.write('<p>Q5. Y or N, is a 100 dollars today worth more than 100 dollars tomorrow?</p>');
   if (answer5 === 'Y') {
@@ -81,5 +81,27 @@ if (userName === null) {
     console.log(answer5 + ' is wrong');
     document.write('<p>A5: (N) I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?</p>');
   }
+  //Question6
+  for (var index = 1; index <= 4; index++) {
+    console.log('start for loop');
+    var answer6try = parseInt(prompt('Question 6: How old do you think I am?'));
+    var answer6 = 30; //correct answer guesses will be compared to
+    console.log(userName + ' thinks I\'m', answer6try + ' years old');
+    if (answer6try === answer6) {
+      alert('Right answer! Great guess! I am 30 years old!');
+      { break; } //Need code to quit loop after correct answer
+      console.log(index);
+    } else if (answer6try > answer6) {
+      alert('Too high!\nYou have used ' + index + ' tries out of 4.');
+      console.log('too high. i=' + index);
+    } else if (answer6try < answer6) {
+      alert('Too low!\nYou have used ' + index + ' tries out of 4.');
+      console.log('too low. i=' + index);
+    } else {
+      alert('Try typing a number, do NOT write out the number.\nYou have used ' + index + ' tries out of 4.');
+      console.log('wrong type entered. i =' + index);
+    }
+  }
+
   alert('Thank you for playing my game! Hope you enjoy your stay!');
 }
