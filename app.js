@@ -17,7 +17,7 @@ if (userName === null) {
 } else {
   var answer1 = prompt('Thanks ' + userName + '! First question is easy:\nTell me Y or N, have I traveled to more than 5 countries?');
   console.log(userName + ' answered ' + answer1 + ' to question 1.');
-  document.write('<p id="gameResults">Game Results</p>')
+  document.write('<p id="gameResults">Game Results</p>');
   document.write('<p>Q1. Have I traveled to more than 5 countries?</p>');
   if (answer1 === 'Y' || answer1 === 'y') {
     alert('Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!');
@@ -28,9 +28,9 @@ if (userName === null) {
     console.log(answer1 + ' is wrong');
     document.write('<p>A1: (N) Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!</p>');
   }
-  var answer2 = prompt('Next question:\nY of N, did I grew up in Seattle, WA?');
+  var answer2 = prompt('Next question:\nY of N, did I grow up in Seattle, WA?');
   console.log(userName + ' answered ' + answer2 + ' to question 2.');
-  document.write('<p>Q2. Y of N, did I grew up in Seattle, WA?</p>');
+  document.write('<p>Q2. Y of N, did I grow up in Seattle, WA?</p>');
   if (answer2 === 'Y' || answer2 === 'y') {
     alert('Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.');
     console.log(answer2 + ' is wrong');
@@ -40,9 +40,9 @@ if (userName === null) {
     console.log(answer2 + ' is correct');
     document.write('<p>A2: (N) Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.</p>');
   }
-  var answer3 = prompt('Let\'s try another one!\nY or N, am a student at CodeFellows?');
+  var answer3 = prompt('Let\'s try another one!\nY or N, am I a student at CodeFellows?');
   console.log(userName + ' answered ' + answer3 + ' to question 3.');
-  document.write('<p>Q3. Y or N, am a student at CodeFellows?</p>');
+  document.write('<p>Q3. Y or N, am I a student at CodeFellows?</p>');
   if (answer3 === 'Y' || answer3 === 'y') {
     alert('Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.');
     console.log(answer3 + ' is correct.');
