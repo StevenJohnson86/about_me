@@ -1,16 +1,23 @@
+* {
+  background-color: black;
+}
+
 h1 {
   font-family: helvetica;
+  color: white;
 }
-
 
 p {
-  color: lightgrey;
+  color: white;
 }
 
-.current-content {
-  background-color: #0000FF;
+ul {
+  color: white;
 }
 
-#future-content {
-  border: 5px dashed #FF0000;
+#gameResults {
+  size: 14px;
+  border: 2px solid white;
+  max-width: 200px;
+  text-align: center;
 }
