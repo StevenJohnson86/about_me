@@ -25,7 +25,7 @@ if (userName === null) {
     alert('Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!');
     console.log(answer1 + ' is wrong');
   }
-  var answer2 = prompt('Next question:\nY of N, I grew up in Seattle, WA?');
+  var answer2 = prompt('Next question:\nY of N, did I grew up in Seattle, WA?');
   console.log(userName + ' answered ' + answer2 + ' to question 2.');
   document.write('<p>I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.</p>');
   if (answer2 === 'Y' || answer2 === 'y') {
@@ -35,7 +35,7 @@ if (userName === null) {
     alert('Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.');
     console.log(answer2 + ' is correct');
   }
-  var answer3 = prompt('Let\'s try another one!\nY or N, I am a student at CodeFellows?');
+  var answer3 = prompt('Let\'s try another one!\nY or N, am a student at CodeFellows?');
   console.log(userName + ' answered ' + answer3 + ' to question 3.');
   document.write('<p>I am currently in the 201 course at the CodeFellows Seattle Campus.</p>');
   if (answer3 === 'Y' || answer3 === 'y') {
@@ -55,14 +55,14 @@ if (userName === null) {
     alert('Wrong, I went during the last week of December.');
     console.log(answer4 + ' is wrong.');
   }
-  var answer5 = prompt('Final question:\nY or N, ####');
+  var answer5 = prompt('Final question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?');
   console.log(userName + ' answered ' + answer5 + ' to question 5.');
   if (answer5 === 'Y' || answer5 === 'y') {
-    alert('');
-    console.log(answer5 + 'is ####');
+    alert('Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.');
+    console.log(answer5 + 'is correct!');
   } else {
-    alert('');
-    console.log(answer5 + 'is ####');
+    alert('I don\t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?');
+    console.log(answer5 + 'is wrong');
   }
   alert('Thank you for playing my game! Hope you enjoy your stay!');
 }
