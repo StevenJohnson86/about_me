@@ -1,6 +1,7 @@
 'use strict';
 
 var answerReady = confirm('My name is Steven Johnson. \nDo you want to play a quick game to learn about me?');
+var counter = 0;
 
 if (answerReady) {
   console.log('User is ready');
@@ -24,6 +25,7 @@ if (userName === null) {//put this over arching if-else up by the answerReady co
     alert('Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!');
     console.log(answer1 + ' is correct');
     document.write('<p>A1: (Y) Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France! </p>');
+    counter++;
   } else {
     alert('Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!');
     console.log(answer1 + ' is wrong');
@@ -37,6 +39,7 @@ if (userName === null) {//put this over arching if-else up by the answerReady co
     alert('Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.');
     console.log(answer2 + ' is correct');
     document.write('<p>A2: (N) Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.</p>');
+    counter++;
   } else {
     alert('Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.');
     console.log(answer2 + ' is wrong');
@@ -50,6 +53,7 @@ if (userName === null) {//put this over arching if-else up by the answerReady co
     alert('Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.');
     console.log(answer3 + ' is correct.');
     document.write('<p>A3: (Y) Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.</p>');
+    counter++;
   } else {
     alert('Nice try. I am currently in the 201 course at the CodeFellows Seattle Campus.');
     console.log(answer3 + ' is wrong.');
@@ -63,6 +67,7 @@ if (userName === null) {//put this over arching if-else up by the answerReady co
     alert('Correct! I love skiing and hope to go again soon!');
     console.log(answer4 + ' is correct.');
     document.write('<p>A4: (Y) Correct! I love skiing and hope to go again soon!</p>');
+    counter++;
   } else {
     alert('Wrong, I went during the last week of December.');
     console.log(answer4 + ' is wrong.');
@@ -76,6 +81,7 @@ if (userName === null) {//put this over arching if-else up by the answerReady co
     alert('Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.');
     console.log(answer5 + ' is correct!');
     document.write('<p>A5: (Y) Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.</p>');
+    counter++;
   } else {
     alert('I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?');
     console.log(answer5 + ' is wrong');
@@ -89,7 +95,8 @@ if (userName === null) {//put this over arching if-else up by the answerReady co
     console.log(userName + ' thinks I\'m', answer6try + ' years old');
     if (answer6try === answer6) {
       alert('Right answer! Great guess! I am 30 years old!');
-      { break; } //Need code to quit loop after correct answer
+      counter++;
+      break; //Need code to quit loop after correct answer
       console.log(index);
     } else if (answer6try > answer6) {
       alert('Too high!\nYou have used ' + index + ' tries out of 4.');
@@ -109,21 +116,15 @@ if (userName === null) {//put this over arching if-else up by the answerReady co
     var answer7try = prompt('Question 7:\nFrom Q1, name a country that I\'ve traveled to').toLowerCase();
     console.log(userName + ' thinks I\'ve been to ' + answer7try);
     if (answer7.includes(answer7try) === true) {
-      console.log(answer7try + 'matches' + answer7);
-      alert('Good Memory! I\'ve traveled to Canada, Japan, South Korea, Germany, Switzerland, Italy, and France!');
-      { break; }
+      console.log(answer7try + ' matches ' + answer7);
+      alert('Good Memory! Correct answers were: ' + answer7);
+      counter++;
+      break;
     } else {
       console.log(answer7try + ' is wrong.');
       alert('Guess again!');
     }
-
-    /*for (var index = 0; index < answer7.length; index++) {
-      console.log('start array evaluation loop');
-      if (answer7try === answer7[index]) {
-        console.log()
-      }
-    }*/
   }
-
-  alert('Thank you for playing my game! Hope you enjoy your stay!');
+  alert('Thank you for playing my game, ' + userName + '! You got ' + counter + ' out of 7 correct!');
+  console.log(userName + ' got ' + counter + 'out of 7 correct');
 }
