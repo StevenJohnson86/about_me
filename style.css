@@ -1,11 +1,12 @@
 * {
   background-color: black;
-
 }
 
 h1 {
   font-family: helvetica;
   color: white;
+  position: relative;
+  text-align: center;
 }
 
 h3 {
@@ -15,15 +16,7 @@ h3 {
   border: 1px solid gray;
 }
 
-p {
-  color: white;
-}
-
-ul {
-  color: white;
-}
-
-ol {
+p, ul, ol, dl {
   color: white;
 }
 
