@@ -12,7 +12,7 @@ var userName = prompt('First, what is your name?');
 
 console.log('userName = ' + userName);
 
-if (userName === null) {
+if (userName === null) {//put this over arching if-else up by the answerReady confirm
   console.log('User does not want to play game');
 } else {
 //Question1 + Write title
@@ -101,6 +101,28 @@ if (userName === null) {
       alert('Try typing a number, do NOT write out the number.\nYou have used ' + index + ' tries out of 4.');
       console.log('wrong type entered. i =' + index);
     }
+  }
+  //Question7
+  var answer7 = ['canada', 'japan', 'south korea', 'germany', 'switzerland', 'italy', 'france'];
+  for (var index = 1; index <= 6; index++) {
+    console.log('start 6try for loop');
+    var answer7try = prompt('Question 7:\nFrom Q1, name a country that I\'ve traveled to').toLowerCase();
+    console.log(userName + ' thinks I\'ve been to ' + answer7try);
+    if (answer7.includes(answer7try) === true) {
+      console.log(answer7try + 'matches' + answer7);
+      alert('Good Memory! I\'ve traveled to Canada, Japan, South Korea, Germany, Switzerland, Italy, and France!');
+      { break; }
+    } else {
+      console.log(answer7try + ' is wrong.');
+      alert('Guess again!');
+    }
+
+    /*for (var index = 0; index < answer7.length; index++) {
+      console.log('start array evaluation loop');
+      if (answer7try === answer7[index]) {
+        console.log()
+      }
+    }*/
   }
 
   alert('Thank you for playing my game! Hope you enjoy your stay!');
