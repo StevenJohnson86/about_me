@@ -17,8 +17,6 @@ console.log('userName = ' + userName);
 var questions = ['Thanks ' + userName + '! First question is easy:\nTell me Y or N, have I traveled to more than 5 countries?','Next question:\nY of N, did I grow up in Seattle, WA?','Let\'s try another one!\nY or N, am I a student at CodeFellows?', 'Fourth question:\nY or N, have I gone skiing this winter?', 'Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?'];
 var answers = [['y', 'yes'],['n', 'no'],['y', 'yes'],['y', 'yes'],['y', 'yes']];//if all responses are reorder (correct, wrong) -> we only need one [y, yes]
 var responses = [['Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!', 'Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!'],['Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.', 'Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.'],['Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.', 'Nice try. I am currently in the 201 course at the CodeFellows Seattle Campus.'],['Correct! I love skiing and hope to go again soon!', 'Wrong, I went during the last week of December.'],['Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.', 'I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?']];
-//var logUserA = [[userName + ' answered ' + answer1 + ' to question 1.', ],[],[],[],[]];
-var docWriteQA = [];
 //end of putting questions into arrays and for loop
 
 document.write('<p id="gameResults">Game Results for ' + userName + '</p>');
@@ -27,101 +25,26 @@ if (userName === null) {//To-do: put this over-arching if-else up by the answerR
   console.log('User does not want to play game');
 } else {
 //Question1 + Write title
-  for (var qCount = 0; qCount < questions.length; qCount++) { //contain function once coding of function is complete
-    console.log('start for loop - qCount');
-    function quest1func() {
+  for (var qCount = 0; qCount < questions.length; qCount++) {
+    console.log('for loop fire - qCount');
+    function questFunc() {
       var userAnswer = prompt(questions[qCount]).toLowerCase();
       console.log(userName + ' answered ' + userAnswer + ' to question' + (qCount + 1) + '.');
-//working on formatting for doc.writes      document.write('<p class="gameQuestion">Q' + (qCount + 1) + '. Have I traveled to more than 5 countries?</p>');
+      document.write('<p class="gameQuestion">Q' + (qCount + 1) + '. ' + questions[qCount] + '</p>');
 
       if (answers[qCount].includes(userAnswer)) {
         alert(responses[qCount][0]);
-  //      console.log(answer1 + ' is correct');
-  //      document.write('<p class="gameAnswer">A1: (Y) Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France! </p>');
+        console.log( userAnswer + ' is correct');
+        document.write('<p class="gameAnswer">A' + (qCount + 1) + ': (' + userAnswer + ')' + responses[qCount][0] + '</p>');
         counter++;
       } else {
         alert(responses[qCount][1]);
-  //      console.log(answer1 + ' is wrong');
-  //      document.write('<p class="gameAnswer">A1: (N) Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!</p>');
+        console.log(userAnswer + ' is wrong');
+        document.write('<p class="gameAnswer">A' + (qCount + 1) + ': (' + userAnswer + ')' + responses[qCount][1] + '</p>');
       }
     }
-    quest1func();
+    questFunc();
   }
-//Question2
-/*  function quest2func() {
-    var answer2 = prompt('Next question:\nY of N, did I grow up in Seattle, WA?').toUpperCase();
-    console.log(userName + ' answered ' + answer2 + ' to question 2.');
-    document.write('<p class="gameQuestion">Q2. Y of N, did I grow up in Seattle, WA?</p>');
-
-    if (answer2 === 'N') {
-      alert('Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.');
-      console.log(answer2 + ' is correct');
-      document.write('<p class="gameAnswer">A2: (N) Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.</p>');
-      counter++;
-    } else {
-      alert('Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.');
-      console.log(answer2 + ' is wrong');
-      document.write('<p class="gameAnswer">A2: (Y) Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.</p>');
-    }
-  }
-  quest2func();
-
-//Question3
-  function quest3func() {
-    var answer3 = prompt('Let\'s try another one!\nY or N, am I a student at CodeFellows?').toUpperCase();
-    console.log(userName + ' answered ' + answer3 + ' to question 3.');
-    document.write('<p class="gameQuestion">Q3. Y or N, am I a student at CodeFellows?</p>');
-
-    if (answer3 === 'Y') {
-      alert('Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.');
-      console.log(answer3 + ' is correct.');
-      document.write('<p class="gameAnswer">A3: (Y) Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.</p>');
-      counter++;
-    } else {
-      alert('Nice try. I am currently in the 201 course at the CodeFellows Seattle Campus.');
-      console.log(answer3 + ' is wrong.');
-      document.write('<p class="gameAnswer">A3: (N) Nice try. I am currently in the 201 course at the CodeFellows Seattle Campus.</p>');
-    }
-  }
-  quest3func();
-
-//Question4
-  function quest4func() {
-    var answer4 = prompt('Fourth question:\nY or N, have I gone skiing this winter?').toUpperCase();
-    console.log(userName + ' answered ' + answer4 + ' to question 4.');
-    document.write('<p class="gameQuestion">Q4. Y or N, have I gone skiing this winter?</p>');
-
-    if (answer4 === 'Y') {
-      alert('Correct! I love skiing and hope to go again soon!');
-      console.log(answer4 + ' is correct.');
-      document.write('<p class="gameAnswer">A4: (Y) Correct! I love skiing and hope to go again soon!</p>');
-      counter++;
-    } else {
-      alert('Wrong, I went during the last week of December.');
-      console.log(answer4 + ' is wrong.');
-      document.write('<p class="gameAnswer">A4: (N) Wrong, I went during the last week of December.</p>');
-    }
-  }
-  quest4func();
-
-//Question5
-  function quest5func() {
-    var answer5 = prompt('Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?').toUpperCase();
-    console.log(userName + ' answered ' + answer5 + ' to question 5.');
-    document.write('<p class="gameQuestion">Q5. Y or N, is a 100 dollars today worth more than 100 dollars tomorrow?</p>');
-
-    if (answer5 === 'Y') {
-      alert('Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.');
-      console.log(answer5 + ' is correct!');
-      document.write('<p class="gameAnswer">A5: (Y) Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.</p>');
-      counter++;
-    } else {
-      alert('I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?');
-      console.log(answer5 + ' is wrong');
-      document.write('<p class="gameAnswer">A5: (N) I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?</p>');
-    }
-  }
-  quest5func();
 
 //Question6
   function quest6func() {
@@ -174,4 +97,4 @@ if (userName === null) {//To-do: put this over-arching if-else up by the answerR
 
   alert('Thank you for playing my game, ' + userName + '! You got ' + counter + ' out of 7 correct!');
   console.log(userName + ' got ' + counter + 'out of 7 correct');
-*/}
+}
