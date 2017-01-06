@@ -5,13 +5,10 @@ var counter = 0;
 
 if (answerReady) {
   console.log('User is ready');
-} else {
-  console.log('User not ready');
-}
 
-var userName = prompt('First, what is your name?');
+  var userName = prompt('First, what is your name?');
 
-console.log('userName = ' + userName);
+  console.log('userName = ' + userName);
 
 //lets put some of this stuff into arrays and for loop
 /*var questions = [['Thanks ' + userName + '! First question is easy:\nTell me Y or N, have I traveled to more than 5 countries?'],['Next question:\nY of N, did I grow up in Seattle, WA?'],['Let\'s try another one!\nY or N, am I a student at CodeFellows?'],['Fourth question:\nY or N, have I gone skiing this winter?'],['Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?']];
@@ -19,9 +16,6 @@ var answers = [['y', 'yes'],['n', 'no'],['y', 'yes'],['y', 'yes'],['y', 'yes']];
 var responses = [['Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!', 'Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!'],['Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.', 'Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.'],['Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.', 'Nice try. I am currently in the 201 course at the CodeFellows Seattle Campus.'],['Correct! I love skiing and hope to go again soon!', 'Wrong, I went during the last week of December.'],['Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.', 'I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?']];*/
 //end of putting questions into arrays and for loop
 
-if (userName === null) {//To-do: put this over-arching if-else up by the answerReady confirm
-  console.log('User does not want to play game');
-} else {
 //Question1 + Write title
   var answer1 = prompt('Thanks ' + userName + '! First question is easy:\nTell me Y or N, have I traveled to more than 5 countries?').toUpperCase();
   console.log(userName + ' answered ' + answer1 + ' to question 1.');
@@ -142,4 +136,7 @@ if (userName === null) {//To-do: put this over-arching if-else up by the answerR
 
   alert('Thank you for playing my game, ' + userName + '! You got ' + counter + ' out of 7 correct!');
   console.log(userName + ' got ' + counter + 'out of 7 correct');
+
+} else {
+  console.log('User not ready');
 }
