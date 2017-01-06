@@ -14,9 +14,11 @@ var userName = prompt('First, what is your name?');
 console.log('userName = ' + userName);
 
 //lets put some of this stuff into arrays and for loop
-var questions = ['Thanks ' + userName + '! First question is easy:\nTell me Y or N, have I traveled to more than 5 countries?','Next question:\nY of N, did I grow up in Seattle, WA?','Let\'s try another one!\nY or N, am I a student at CodeFellows?', 'Fourth question:\nY or N, have I gone skiing this winter?', 'Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?'];
-var answers = [['y', 'yes'],['n', 'no'],['y', 'yes'],['y', 'yes'],['y', 'yes']];//if all responses are reorder (correct, wrong) -> we only need one [y, yes]
-var responses = [['Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!', 'Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!'],['Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.', 'Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.'],['Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.', 'Nice try. I am currently in the 201 course at the CodeFellows Seattle Campus.'],['Correct! I love skiing and hope to go again soon!', 'Wrong, I went during the last week of December.'],['Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.', 'I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?']];
+var questions = ['Thanks ' + userName + '! First question is easy:\nTell me Y or N, have I traveled to more than 5 countries?',
+  'Next question:\nY of N, did I grow up in Seattle, WA?',
+  'Let\'s try another one!\nY or N, am I a student at CodeFellows?',
+  'Fourth question:\nY or N, have I gone skiing this winter?',
+  'Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?'];
 //end of putting questions into arrays and for loop
 
 document.write('<p id="gameResults">Game Results for ' + userName + '</p>');
@@ -24,26 +26,11 @@ document.write('<p id="gameResults">Game Results for ' + userName + '</p>');
 if (userName === null) {//To-do: put this over-arching if-else up by the answerReady confirm
   console.log('User does not want to play game');
 } else {
-//Question1 + Write title
+//Question1-5
   for (var qCount = 0; qCount < questions.length; qCount++) {
-    console.log('for loop fire - qCount');
-    function questFunc() {
-      var userAnswer = prompt(questions[qCount]).toLowerCase();
-      console.log(userName + ' answered ' + userAnswer + ' to question' + (qCount + 1) + '.');
-      document.write('<p class="gameQuestion">Q' + (qCount + 1) + '. ' + questions[qCount] + '</p>');
+    console.log('for loop fire - qCount =' + qCount);
 
-      if (answers[qCount].includes(userAnswer)) {
-        alert(responses[qCount][0]);
-        console.log( userAnswer + ' is correct');
-        document.write('<p class="gameAnswer">A' + (qCount + 1) + ': (' + userAnswer + ')' + responses[qCount][0] + '</p>');
-        counter++;
-      } else {
-        alert(responses[qCount][1]);
-        console.log(userAnswer + ' is wrong');
-        document.write('<p class="gameAnswer">A' + (qCount + 1) + ': (' + userAnswer + ')' + responses[qCount][1] + '</p>');
-      }
-    }
-    questFunc();
+    questFunc(qCount);
   }
 
 //Question6
@@ -97,4 +84,25 @@ if (userName === null) {//To-do: put this over-arching if-else up by the answerR
 
   alert('Thank you for playing my game, ' + userName + '! You got ' + counter + ' out of 7 correct!');
   console.log(userName + ' got ' + counter + 'out of 7 correct');
+
+}
+
+function questFunc(index) {
+  var userAnswer = prompt(questions[index]).toLowerCase();
+  var answers = [['y', 'yes'],['n', 'no'],['y', 'yes'],['y', 'yes'],['y', 'yes']];//if all responses are reorder (correct, wrong) -> we only need one [y, yes]
+  var responses = [['Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!',
+    'Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!'],['Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.', 'Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.'],['Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.', 'Nice try. I am currently in the 201 course at the CodeFellows Seattle Campus.'],['Correct! I love skiing and hope to go again soon!', 'Wrong, I went during the last week of December.'],['Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.', 'I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?']];
+  console.log(userName + ' answered ' + userAnswer + ' to question' + (index + 1) + '.');
+  document.write('<p class="gameQuestion">Q' + (index + 1) + '. ' + questions[index] + '</p>');
+
+  if (answers[index].includes(userAnswer)) {
+    alert(responses[index][0]);
+    console.log( userAnswer + ' is correct');
+    document.write('<p class="gameAnswer">A' + (index + 1) + ': (' + userAnswer + ')' + responses[index][0] + '</p>');
+    counter++;
+  } else {
+    alert(responses[index][1]);
+    console.log(userAnswer + ' is wrong');
+    document.write('<p class="gameAnswer">A' + (index + 1) + ': (' + userAnswer + ')' + responses[index][1] + '</p>');
+  }
 }
