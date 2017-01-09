@@ -5,88 +5,40 @@ var counter = 0;
 
 if (answerReady) {
   console.log('User is ready');
-} else {
-  console.log('User not ready');
-}
 
-var userName = prompt('First, what is your name?');
+  //user name prompt
+  var userName = prompt('First, what is your name?');
+  console.log('userName = ' + userName);
 
-console.log('userName = ' + userName);
+  var questions = ['Thanks ' + userName + '! First question is easy:\nTell me Y or N, have I traveled to more than 5 countries?',
+    'Next question:\nY of N, did I grow up in Seattle, WA?',
+    'Let\'s try another one!\nY or N, am I a student at CodeFellows?',
+    'Fourth question:\nY or N, have I gone skiing this winter?',
+    'Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?'];
 
-//lets put some of this stuff into arrays and for loop
-var questions = ['Thanks ' + userName + '! First question is easy:\nTell me Y or N, have I traveled to more than 5 countries?',
-  'Next question:\nY of N, did I grow up in Seattle, WA?',
-  'Let\'s try another one!\nY or N, am I a student at CodeFellows?',
-  'Fourth question:\nY or N, have I gone skiing this winter?',
-  'Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?'];
-//end of putting questions into arrays and for loop
+  document.getElementById('game-readout').innerHTML = '<p id="gameResults">Game Results for ' + userName + '</p>';
 
-document.getElementById('game-readout').innerHTML = '<p id="gameResults">Game Results for ' + userName + '</p>';
-
-if (userName === null) {//To-do: put this over-arching if-else up by the answerReady confirm
-  console.log('User does not want to play game');
-} else {
-//Question1-5
+//Question1-5 for-loop call
   for (var qCount = 0; qCount < questions.length; qCount++) {
     console.log('for loop fire - qCount =' + qCount);
 
     questFunc(qCount);
   }
 
-//Question6
-  function quest6func() {
-    for (var index = 1; index <= 4; index++) {
-      console.log('start for loop');
-      var answer6try = parseInt(prompt('Question 6: How old do you think I am?'));
-      var answer6 = 30; //correct answer guesses will be compared to
-      console.log(userName + ' thinks I\'m', answer6try + ' years old');
-
-      if (answer6try === answer6) {
-        alert('Right answer! Great guess! I am 30 years old!');
-        counter++;
-        break; //Need code to quit loop after correct answer
-        console.log(index);
-      } else if (answer6try > answer6) {
-        alert('Too high!\nYou have used ' + index + ' tries out of 4.');
-        console.log('too high. i=' + index);
-      } else if (answer6try < answer6) {
-        alert('Too low!\nYou have used ' + index + ' tries out of 4.');
-        console.log('too low. i=' + index);
-      } else {
-        alert('Try typing a number, do NOT write out the number.\nYou have used ' + index + ' tries out of 4.');
-        console.log('wrong type entered. i =' + index);
-      }
-    }
-  }
+//Question6 call
   quest6func();
 
-//Question7
-  function quest7func() {
-    var answer7 = ['canada', 'japan', 'south korea', 'germany', 'switzerland', 'italy', 'france'];
-
-    for (var index = 1; index <= 6; index++) {
-      console.log('start 6try for loop');
-      var answer7try = prompt('Question 7:\nFrom Q1, name a country that I\'ve traveled to').toLowerCase();
-      console.log(userName + ' thinks I\'ve been to ' + answer7try);
-
-      if (answer7.includes(answer7try) === true) {
-        console.log(answer7try + ' matches ' + answer7);
-        alert('Good Memory! Correct answers were: ' + answer7);
-        counter++;
-        break;
-      } else {
-        console.log(answer7try + ' is wrong.');
-        alert('Guess again!');
-      }
-    }
-  }
+//Question7 call
   quest7func();
 
   alert('Thank you for playing my game, ' + userName + '! You got ' + counter + ' out of 7 correct!');
-  console.log(userName + ' got ' + counter + 'out of 7 correct');
+  console.log(userName + ' got ' + counter + ' out of 7 correct');
 
+} else { //used to cancel popups
+  console.log('User not ready');
 }
 
+//Questions1-5
 function questFunc(index) {
   var userAnswer = prompt(questions[index]).toLowerCase();
   var answers = [['y', 'yes'],['n', 'no'],['y', 'yes'],['y', 'yes'],['y', 'yes']];//if all responses are reorder (correct, wrong) -> we only need one [y, yes]
@@ -104,5 +56,53 @@ function questFunc(index) {
     alert(responses[index][1]);
     console.log(userAnswer + ' is wrong');
     document.getElementById('game-readout').innerHTML += '<p class="gameAnswer">A' + (index + 1) + ': (' + userAnswer + ')' + responses[index][1] + '</p>';
+  }
+}
+
+//Question6
+function quest6func() {
+  for (var index = 0; index < 4; index++) {
+    console.log('start for loop');
+    var tryCount = 4 - (index + 1);
+    var answer6try = parseInt(prompt('Question 6: How old do you think I am?'));
+    var answer6 = 30; //correct answer guesses will be compared to
+    console.log(userName + ' thinks I\'m', answer6try + ' years old');
+
+    if (answer6try === answer6) {
+      alert('Right answer! Great guess! I am 30 years old!');
+      counter++;
+      break; //Need code to quit loop after correct answer
+      console.log(index);
+    } else if (answer6try > answer6) {
+      alert('Too high!\nYou have ' + tryCount + ' tries left.');
+      console.log('too high. i=' + index);//this helped me to understand loops
+    } else if (answer6try < answer6) {
+      alert('Too low!\nYou have ' + tryCount + ' tries left.');
+      console.log('too low. i=' + index);
+    } else {
+      alert('Try typing a number, do NOT write out the number.\nYou have ' + tryCount + ' tries left.');
+      console.log('wrong type entered. i =' + index);
+    }
+  }
+}
+
+//Question7
+function quest7func() {
+  var answer7 = ['canada', 'japan', 'south korea', 'germany', 'switzerland', 'italy', 'france'];
+
+  for (var index = 0; index < 6; index++) {
+    console.log('6try for-loop fires');
+    var answer7try = prompt('Question 7:\nFrom Q1, name a country that I\'ve traveled to').toLowerCase();
+    console.log(userName + ' thinks I\'ve been to ' + answer7try);
+
+    if (answer7.includes(answer7try) === true) {
+      console.log(answer7try + ' matches ' + answer7);
+      alert('Good Memory! Correct answers were: ' + answer7);
+      counter++;
+      break;
+    } else {
+      console.log(answer7try + ' is wrong.');
+      alert('Guess again!');
+    }
   }
 }
