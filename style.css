@@ -16,19 +16,21 @@ header {
 }
 
 header h1 {
-
+  margin-left: 2em;
   color: white;
 
 }
 
 header ul {
   list-style-type: none;
-
 }
 
 header li {
   display: inline;
   border: 1px solid white;
+  border-radius: 10px;
+  padding: 2px 4px;
+  margin: 0px 5px;
 }
 
 .content {
@@ -46,6 +48,11 @@ h3 {
 
 p, ul, ol, dl {
   color: white;
+}
+
+#fun-content {
+  height: auto;
+  width: 100%;
 }
 
 #movies-list {
@@ -66,4 +73,9 @@ p, ul, ol, dl {
   border: 2px solid white;
   max-width: 250px;
   text-align: center;
+}
+
+#footer {
+ width: 100%;
+ float: right;
 }
