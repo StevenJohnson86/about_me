@@ -21,7 +21,7 @@ var questions = ['Thanks ' + userName + '! First question is easy:\nTell me Y or
   'Fifth question:\nY or N, is a 100 dollars today worth more than 100 dollars tomorrow?'];
 //end of putting questions into arrays and for loop
 
-document.write('<p id="gameResults">Game Results for ' + userName + '</p>');
+document.getElementById('game-readout').innerHTML = '<p id="gameResults">Game Results for ' + userName + '</p>';
 
 if (userName === null) {//To-do: put this over-arching if-else up by the answerReady confirm
   console.log('User does not want to play game');
@@ -93,16 +93,16 @@ function questFunc(index) {
   var responses = [['Great guess! \nI\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!',
     'Oops! I guess I forgot to tell you that I\'ve been to Canada, Japan, S.Korea, Germany, Switzerland, Italy, and France!'],['Correct! I grew up in the Snoqualmie Valley, which is about 1 hour from Seattle.', 'Close guess! I was brought up in the Snoqualmie Valley, which is about 1 hour from Seattle.'],['Nice one! I am currently in the 201 course at the CodeFellows Seattle Campus.', 'Nice try. I am currently in the 201 course at the CodeFellows Seattle Campus.'],['Correct! I love skiing and hope to go again soon!', 'Wrong, I went during the last week of December.'],['Right! I learned about the time-value of money when I studied Finance at Pacific Lutheran University in Tacoma, WA.', 'I don\'t believe so. If you need convincing, I\'ll borrow money from you anytime! Why else would banks charge interest?']];
   console.log(userName + ' answered ' + userAnswer + ' to question' + (index + 1) + '.');
-  document.write('<p class="gameQuestion">Q' + (index + 1) + '. ' + questions[index] + '</p>');
+  document.getElementById('game-readout').innerHTML += '<p class="gameQuestion">Q' + (index + 1) + '. ' + questions[index] + '</p>';
 
   if (answers[index].includes(userAnswer)) {
     alert(responses[index][0]);
     console.log( userAnswer + ' is correct');
-    document.write('<p class="gameAnswer">A' + (index + 1) + ': (' + userAnswer + ')' + responses[index][0] + '</p>');
+    document.getElementById('game-readout').innerHTML += '<p class="gameAnswer">A' + (index + 1) + ': (' + userAnswer + ')' + responses[index][0] + '</p>';
     counter++;
   } else {
     alert(responses[index][1]);
     console.log(userAnswer + ' is wrong');
-    document.write('<p class="gameAnswer">A' + (index + 1) + ': (' + userAnswer + ')' + responses[index][1] + '</p>');
+    document.getElementById('game-readout').innerHTML += '<p class="gameAnswer">A' + (index + 1) + ': (' + userAnswer + ')' + responses[index][1] + '</p>';
   }
 }

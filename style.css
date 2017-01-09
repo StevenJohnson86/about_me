@@ -32,7 +32,7 @@ header li {
 }
 
 .content {
-  padding-top: 7em;
+  margin: 7em 0em;
 }
 
 h3 {
@@ -46,6 +46,19 @@ h3 {
 
 p, ul, ol, dl {
   color: white;
+}
+
+#movies-list {
+  width: 48%;
+  float: left;
+  display: inline;
+  color: white;
+}
+
+#game-readout {
+  width: 48%;
+  float: right;
+  display: inline;
 }
 
 #gameResults {
